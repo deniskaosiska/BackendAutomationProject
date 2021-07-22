@@ -27,25 +27,18 @@ public class SingletonDriver {
 
 //Singelton of driver and getting info from DB table or data.xml
     public static WebDriver getDriverInstance() throws SQLException {
-
+        //Connect to DB table
         Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://" + SERVER + ":" + PORT, USER_NAME, PASSWORD);
 
         String statementToExecute = "SELECT * FROM " + DATABASE_NAME + ".config;";
         Statement stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery(statementToExecute);
-        URL = rs.getString("config_data");
-
-
-        try {
-            URL = rs.getString("config_data");
-            System.out.println(URL);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+        URL = rs.getString("config_data"); //Try to insert website from DB to String
+        //Instal SingeltonDriver
         if(driver == null){
             try {
 
-                if(URL==null){
+                if(URL==null){ //if DB is unavailable, use website from DATA.xml
 
 
                 String URLXML = getData("websiteURL");

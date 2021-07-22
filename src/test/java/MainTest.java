@@ -89,7 +89,7 @@ public class MainTest  {
             homeScreen.logOut();
             test.log(Status.INFO, "Text color of step name: " + driver.findElement(By.cssSelector("div[class='label bottom-xs']")).getCssValue("color"));
             test.log(Status.PASS, "Test is successful");
-            testResult();
+            testResult(); //Write result: into DB or Result.txt
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -162,10 +162,12 @@ public class MainTest  {
 //            test.log(Status.FAIL, "Failed: " + e.getMessage());
 //        }
 //    }
+
+    //Time and date for result
 public static String timestamp() {
     return new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());
 }
-
+//Method of create Result txt
 public  void createResultTxt() {
     FileWriter newFile = null;
     try {
@@ -192,6 +194,7 @@ public  void createResultTxt() {
         e.printStackTrace();
     }
 }
+//Method of creating result: or into DB or into Result txt
 public void testResult(){
         try {
     if (con == null) {
