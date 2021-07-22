@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "<a href="http://testng.org/testng-1.0.dtd">http://testng.org/testng-1.0.dtd</a>">
+        <suite name="TestSuite" thread-count="2" parallel="tests" >
+        <test name="ChromeTest">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+        <class name="test.CrossBrowserTestingScript">
+        </class>
+        </classes>
+        </test>
+        <test name="FirefoxTest">
+        <parameter name="browser" value="Firefox" />
+        <classes>
+        <class name="test.CrossBrowserTestingScript">
+        </class>
+        </classes>
+        </test>
+        <test name="EdgeTest">
+        <parameter name="browser" value="Edge" />
+        <classes>
+        <class name="test.CrossBrowserTestingScript">
+        </class>
+        </classes>
+        </test>
+        </suite>
