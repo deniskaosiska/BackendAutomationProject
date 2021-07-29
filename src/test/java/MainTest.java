@@ -177,14 +177,13 @@ public  void createResultTxt() {
     }
     BufferedWriter bw = new BufferedWriter(newFile);
     /**
-     * Write all conversations that user did
+     * Write all results
      */
     try {
         int size = MyList.size();
         for (int i=0;i<size;i++) {
             String str = MyList.get(i).toString();
-            String str1 = MyList.get(i=i+1).toString();
-            newFile.write("Result "+ str +" Conversation flow " + str1);
+            newFile.write("Result "+ str);
             if(i < size-1) {//This prevent creating a blank like at the end of the file
                 newFile.write("\n");
             }
